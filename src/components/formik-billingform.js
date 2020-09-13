@@ -5,10 +5,12 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import FormikAutoCompleteCountryPhone from "./forms-schema/formik-autocomplete-country-phone";
 import FormikValuesViewer from "./formik-values-viewer";
+import CheckboxLabels from "./forms-schema/formik-checkbox";
+import { useMediaQuery } from "@material-ui/core";
 
 const FormikBillingform = ({ initialValues, validationSchema }) => {
   const classes = useStyles();
-
+  const isMobile = useMediaQuery("(max-width:720px)");
   return (
     <Formik
       initialValues={initialValues}
@@ -20,6 +22,23 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
     >
       {(formikProps) => (
         <Form className={`${classes.rootInput}`}>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(16rem, 1fr))",
+              // gridGap: "1rem",
+              width: "100%",
+              gridColumnGap: "1rem",
+              gridRowGap: "8rem",
+            }}
+          >
+            <div style={{ background: "green" }}>Hello</div>
+            <div style={{ background: "blue" }}>Hello</div>
+            <div style={{ background: "red" }}>Hello</div>
+            <div style={{ background: "pink" }}>Hello</div>
+            <div style={{ background: "grey" }}>Hello</div>
+            <div style={{ background: "black" }}>Hello</div>
+          </div>
           <div className={classes.divStyle}>
             <div>Company Name</div>
             <FormikTextfield
@@ -50,7 +69,10 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
             />
           </div>
 
-          <div className={classes.divStyle}>
+          <div
+            className={classes.divStyle}
+            style={{ fontSize: isMobile ? "0.75rem" : "1rem" }}
+          >
             <div> Region / State / Province</div>
             <FormikTextfield
               classes={classes}
@@ -107,6 +129,20 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
           </div>
 
           <div
+            className={
+              isMobile ? classes.invoiceGridMobile : classes.invoiceGrid
+            }
+          >
+            <div>
+              <p>Invoice </p>
+            </div>
+
+            <div>
+              <CheckboxLabels />
+            </div>
+          </div>
+
+          <div
             style={{
               display: "flex",
               flexDirection: "row",
@@ -114,12 +150,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
               width: "100%",
             }}
           >
-            <Button
-              size={"large"}
-              type="submit"
-              variant="contained"
-              color="primary"
-            >
+            <Button type="submit" variant="contained" color="primary">
               Submit
             </Button>
           </div>
@@ -163,6 +194,16 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
-    width: "80%",
+    width: "100%",
+  },
+  invoiceGrid: {
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "25% 25% 30%",
+  },
+  invoiceGridMobile: {
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "30% 50%",
   },
 }));
