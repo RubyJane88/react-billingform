@@ -20,78 +20,109 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
     >
       {(formikProps) => (
         <Form className={`${classes.rootInput}`}>
-          <FormikTextfield
-            classes={classes}
-            id={"companyName"}
-            label={"Company Name"}
-            placeholder={"🙈"}
-            formikProps={formikProps}
-          />
+          <div className={classes.divStyle}>
+            <div>Company Name</div>
+            <FormikTextfield
+              classes={classes}
+              id={"companyName"}
+              label={"Company Name"}
+              placeholder={"🙈"}
+              formikProps={formikProps}
+            />
+          </div>
 
-          <FormikTextfield
-            classes={classes}
-            id={"fullName"}
-            label={"Full Name"}
-            placeholder={"🥒"}
-            formikProps={formikProps}
-          />
+          <div className={classes.divStyle}>
+            <div> Full Name</div>
+            <FormikTextfield
+              classes={classes}
+              id={"fullName"}
+              label={"Full Name"}
+              placeholder={"🥒"}
+              formikProps={formikProps}
+            />
+          </div>
 
-          <FormikAutoCompleteCountryPhone
-            id={"country"}
-            formikProps={formikProps}
-          />
+          <div className={classes.divStyle}>
+            <div> Country</div>
+            <FormikAutoCompleteCountryPhone
+              id={"country"}
+              formikProps={formikProps}
+            />
+          </div>
 
-          <FormikTextfield
-            classes={classes}
-            id={"region"}
-            label={"Region/State/Province"}
-            placeholder={"🏝️"}
-            formikProps={formikProps}
-          />
+          <div className={classes.divStyle}>
+            <div> Region / State / Province</div>
+            <FormikTextfield
+              classes={classes}
+              id={"region"}
+              label={"Region/State/Province"}
+              placeholder={"🏝️"}
+              formikProps={formikProps}
+            />
+          </div>
 
-          <FormikTextfield
-            classes={classes}
-            id={"address"}
-            label={"Address"}
-            placeholder={"😀"}
-            formikProps={formikProps}
-          />
+          <div className={classes.divStyle}>
+            <div> Address</div>
 
-          <FormikTextfield
-            classes={classes}
-            id={"city"}
-            label={"City"}
-            placeholder={"🙃"}
-            formikProps={formikProps}
-          />
+            <FormikTextfield
+              classes={classes}
+              id={"address"}
+              label={"Address"}
+              placeholder={"😀"}
+              formikProps={formikProps}
+            />
+          </div>
 
-          <FormikTextfield
-            classes={classes}
-            id={"zipCode"}
-            label={"Zip Code"}
-            placeholder={"🙃"}
-            formikProps={formikProps}
-          />
+          <div className={classes.divStyle}>
+            <div> City</div>
+            <FormikTextfield
+              classes={classes}
+              id={"city"}
+              label={"City"}
+              placeholder={"🙃"}
+              formikProps={formikProps}
+            />
+          </div>
 
-          <FormikTextfield
-            classes={classes}
-            id={"vatId"}
-            label={"VAT ID"}
-            placeholder={"🙃"}
-            formikProps={formikProps}
-          />
+          <div className={classes.divStyle}>
+            <div> Zip Code</div>
+            <FormikTextfield
+              classes={classes}
+              id={"zipCode"}
+              label={"Zip Code"}
+              placeholder={"🙃"}
+              formikProps={formikProps}
+            />
+          </div>
 
-          <section className={classes.full}>
+          <div className={classes.divStyle}>
+            <div> VAT Id</div>
+            <FormikTextfield
+              classes={classes}
+              id={"vatId"}
+              label={"VAT ID"}
+              placeholder={"🙃"}
+              formikProps={formikProps}
+            />
+          </div>
+
+          <div
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              justifyContent: "space-around",
+              width: "100%",
+            }}
+          >
             <Button
               size={"large"}
-              className={classes.full}
               type="submit"
               variant="contained"
               color="primary"
             >
               Submit
             </Button>
-          </section>
+          </div>
 
           <FormikValuesViewer formikProps={formikProps} />
         </Form>
@@ -113,7 +144,7 @@ const useStyles = makeStyles((theme) => ({
   },
 
   full: {
-    width: "100%",
+    width: "75%",
   },
   rootInput: {
     "& > *": {
@@ -126,5 +157,12 @@ const useStyles = makeStyles((theme) => ({
 
   errorColor: {
     color: "red",
+  },
+
+  divStyle: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: "80%",
   },
 }));

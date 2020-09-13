@@ -3,7 +3,6 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { makeStyles } from "@material-ui/core/styles";
 import { ErrorMessage } from "formik";
-import { csCZ } from "@material-ui/core/locale";
 
 const FormikAutoCompleteCountryPhone = ({ id, formikProps }) => {
   const classes = useStyles();
@@ -65,7 +64,7 @@ const useStyles = makeStyles({
   },
 
   full: {
-    width: "100%",
+    width: "75%",
   },
 });
 

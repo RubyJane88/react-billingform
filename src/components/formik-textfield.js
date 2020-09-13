@@ -2,7 +2,7 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import { ErrorMessage } from "formik";
 
-const FormikTextfield = ({ id, placeholder, formikProps, label, classes }) => {
+const FormikTextfield = ({ id, placeholder, formikProps, classes }) => {
   return (
     <section className={classes.full}>
       <TextField
@@ -11,7 +11,7 @@ const FormikTextfield = ({ id, placeholder, formikProps, label, classes }) => {
         value={formikProps.values[`${id}`]}
         variant="outlined"
         placeholder={placeholder}
-        label={label}
+        // label={label}
         onChange={formikProps.handleChange}
         onBlur={formikProps.handleBlur}
       />
