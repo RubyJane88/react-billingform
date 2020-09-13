@@ -3,32 +3,18 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { makeStyles } from "@material-ui/core/styles";
 
-function countryToFlag(isoCode) {
-  return typeof String.fromCodePoint !== "undefined"
-    ? isoCode
-        .toUpperCase()
-        .replace(/./g, (char) =>
-          String.fromCodePoint(char.charCodeAt(0) + 127397)
-        )
-    : isoCode;
-}
-
-const useStyles = makeStyles({
-  option: {
-    fontSize: 15,
-    "& > span": {
-      marginRight: 10,
-      fontSize: 18,
-    },
-  },
-});
-
-export default function formikAutoCompleteCountryPhone() {
+const FormikAutoCompleteCountryPhone = ({ id, formikProps }) => {
   const classes = useStyles();
 
   return (
     <Autocomplete
-      id="country-select-demo"
+      id={id}
+      onChange={(e, value) => {
+        formikProps.setFieldValue("country", value);
+      }}
+      onBlur={(e, value) => {
+        formikProps.setFieldTouched("country", value);
+      }}
       style={{ width: 300 }}
       options={countries}
       classes={{
@@ -55,7 +41,28 @@ export default function formikAutoCompleteCountryPhone() {
       )}
     />
   );
+};
+export default FormikAutoCompleteCountryPhone;
+
+function countryToFlag(isoCode) {
+  return typeof String.fromCodePoint !== "undefined"
+    ? isoCode
+        .toUpperCase()
+        .replace(/./g, (char) =>
+          String.fromCodePoint(char.charCodeAt(0) + 127397)
+        )
+    : isoCode;
 }
+
+const useStyles = makeStyles({
+  option: {
+    fontSize: 15,
+    "& > span": {
+      marginRight: 10,
+      fontSize: 18,
+    },
+  },
+});
 
 // From https://bitbucket.org/atlassian/atlaskit-mk-2/raw/4ad0e56649c3e6c973e226b7efaeb28cb240ccb0/packages/core/select/src/data/countries.js
 const countries = [

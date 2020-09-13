@@ -3,6 +3,8 @@ import { Form, Formik } from "formik";
 import FormikTextfield from "./formik-textfield";
 import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
+import FormikAutoCompleteCountryPhone from "./forms-schema/formik-autocomplete-country-phone";
+import FormikValuesViewer from "./formik-values-viewer";
 
 const FormikBillingform = ({ initialValues, validationSchema }) => {
   const classes = useStyles();
@@ -19,6 +21,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
       {(formikProps) => (
         <Form className={`${classes.rootInput}`}>
           <FormikTextfield
+            classes={classes}
             id={"companyName"}
             label={"Company Name"}
             placeholder={"🙈"}
@@ -26,19 +29,20 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
           />
 
           <FormikTextfield
+            classes={classes}
             id={"fullName"}
             label={"Full Name"}
             placeholder={"🥒"}
             formikProps={formikProps}
           />
-          <FormikTextfield
+
+          <FormikAutoCompleteCountryPhone
             id={"country"}
-            label={"Country"}
-            placeholder={"🏁"}
             formikProps={formikProps}
           />
 
           <FormikTextfield
+            classes={classes}
             id={"region"}
             label={"Region/State/Province"}
             placeholder={"🏝️"}
@@ -46,6 +50,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
           />
 
           <FormikTextfield
+            classes={classes}
             id={"address"}
             label={"Address"}
             placeholder={"😀"}
@@ -53,6 +58,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
           />
 
           <FormikTextfield
+            classes={classes}
             id={"city"}
             label={"City"}
             placeholder={"🙃"}
@@ -60,6 +66,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
           />
 
           <FormikTextfield
+            classes={classes}
             id={"zipCode"}
             label={"Zip Code"}
             placeholder={"🙃"}
@@ -67,6 +74,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
           />
 
           <FormikTextfield
+            classes={classes}
             id={"vatId"}
             label={"VAT ID"}
             placeholder={"🙃"}
@@ -84,6 +92,8 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
               Submit
             </Button>
           </section>
+
+          <FormikValuesViewer formikProps={formikProps} />
         </Form>
       )}
     </Formik>

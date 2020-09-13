@@ -1,7 +1,11 @@
 export const initialValues = {
   companyName: "",
   fullName: "",
-  country: "",
+  country: {
+    code: "",
+    label: "",
+    phone: "",
+  },
   region: "",
   address: "",
   city: "",
