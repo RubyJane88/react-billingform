@@ -2,44 +2,45 @@ import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import { makeStyles } from "@material-ui/core/styles";
+import { ErrorMessage } from "formik";
+import { csCZ } from "@material-ui/core/locale";
 
 const FormikAutoCompleteCountryPhone = ({ id, formikProps }) => {
   const classes = useStyles();
 
   return (
-    <Autocomplete
-      id={id}
-      onChange={(e, value) => {
-        formikProps.setFieldValue("country", value);
-      }}
-      onBlur={(e, value) => {
-        formikProps.setFieldTouched("country", value);
-      }}
-      style={{ width: 300 }}
-      options={countries}
-      classes={{
-        option: classes.option,
-      }}
-      autoHighlight
-      getOptionLabel={(option) => option.label}
-      renderOption={(option) => (
-        <React.Fragment>
-          <span>{countryToFlag(option.code)}</span>
-          {option.label} ({option.code}) +{option.phone}
-        </React.Fragment>
-      )}
-      renderInput={(params) => (
-        <TextField
-          {...params}
-          label="Choose a country"
-          variant="outlined"
-          inputProps={{
-            ...params.inputProps,
-            autoComplete: "new-password", // disable autocomplete and autofill
-          }}
-        />
-      )}
-    />
+    <section className={classes.full}>
+      <Autocomplete
+        id={id}
+        onChange={(e, value) => {
+          formikProps.setFieldValue("country", value);
+        }}
+        options={countries}
+        classes={{
+          option: classes.option,
+        }}
+        autoHighlight
+        getOptionLabel={(option) => option.label}
+        renderOption={(option) => (
+          <React.Fragment>
+            <span>{countryToFlag(option.code)}</span>
+            {option.label} ({option.code}) +{option.phone}
+          </React.Fragment>
+        )}
+        renderInput={(params) => (
+          <TextField
+            {...params}
+            label="Choose a country"
+            variant="outlined"
+            inputProps={{
+              ...params.inputProps,
+              autoComplete: "new-password", // disable autocomplete and autofill
+            }}
+          />
+        )}
+      />
+      <ErrorMessage name={id} />
+    </section>
   );
 };
 export default FormikAutoCompleteCountryPhone;
@@ -61,6 +62,10 @@ const useStyles = makeStyles({
       marginRight: 10,
       fontSize: 18,
     },
+  },
+
+  full: {
+    width: "100%",
   },
 });
 
