@@ -7,6 +7,9 @@ import FormikAutoCompleteCountryPhone from "./forms-schema/formik-autocomplete-c
 import FormikValuesViewer from "./formik-values-viewer";
 import CheckboxLabels from "./forms-schema/formik-checkbox";
 import { useMediaQuery } from "@material-ui/core";
+import Divider from "@material-ui/core/Divider";
+import Box from "@material-ui/core/Box";
+import FormDivider from "./forms-schema/form-divider";
 
 const FormikBillingform = ({ initialValues, validationSchema }) => {
   const classes = useStyles();
@@ -22,7 +25,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
     >
       {(formikProps) => (
         <Form className={`${classes.rootInput}`}>
-          {/* Sample of how to use grid */}
+          {/*/!* Sample of how to use grid *!/*/}
 
           {/*<div*/}
           {/*  style={{*/}
@@ -63,11 +66,14 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
             />
           </div>
 
+          <FormDivider />
+
           <div className={classes.divStyle}>
-            <div> Country</div>
+            <div>Country</div>
             <FormikAutoCompleteCountryPhone
               id={"country"}
               formikProps={formikProps}
+              classes={classes}
             />
           </div>
 
@@ -119,6 +125,8 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
             />
           </div>
 
+          <FormDivider />
+
           <div className={classes.divStyle}>
             <div> VAT Id</div>
             <FormikTextfield
@@ -129,6 +137,8 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
               formikProps={formikProps}
             />
           </div>
+
+          <FormDivider />
 
           <div
             className={
@@ -153,7 +163,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
             }}
           >
             <Button type="submit" variant="contained" color="primary">
-              Submit
+              Save Changes
             </Button>
           </div>
 

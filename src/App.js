@@ -10,6 +10,7 @@ import Container from "@material-ui/core/Container";
 
 import { initialValues } from "./components/forms-schema/formik-initialvalues";
 import { schema } from "./components/forms-schema/formik-yupvalidation";
+import FormDivider from "./components/forms-schema/form-divider";
 
 function App() {
   const classes = useStyles();
@@ -37,6 +38,7 @@ function App() {
       <Container>
         <h1> Billing Information</h1>
         <p> The following information will be displayed on your invoices</p>
+        <FormDivider />
         <FormikBillingform
           initialValues={initialValues}
           validationSchema={schema}

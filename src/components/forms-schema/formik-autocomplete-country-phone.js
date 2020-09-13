@@ -1,23 +1,18 @@
 import React from "react";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import { makeStyles } from "@material-ui/core/styles";
 import { ErrorMessage } from "formik";
 
-const FormikAutoCompleteCountryPhone = ({ id, formikProps }) => {
-  const classes = useStyles();
-
+const FormikAutoCompleteCountryPhone = ({ id, formikProps, classes }) => {
   return (
     <section className={classes.full}>
       <Autocomplete
+        className={classes.full}
         id={id}
         onChange={(e, value) => {
           formikProps.setFieldValue("country", value);
         }}
         options={countries}
-        classes={{
-          option: classes.option,
-        }}
         autoHighlight
         getOptionLabel={(option) => option.label}
         renderOption={(option) => (
@@ -29,8 +24,8 @@ const FormikAutoCompleteCountryPhone = ({ id, formikProps }) => {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Choose a country"
             variant="outlined"
+            placeholder={"🎌"}
             inputProps={{
               ...params.inputProps,
               autoComplete: "new-password", // disable autocomplete and autofill
@@ -53,20 +48,6 @@ function countryToFlag(isoCode) {
         )
     : isoCode;
 }
-
-const useStyles = makeStyles({
-  option: {
-    fontSize: 15,
-    "& > span": {
-      marginRight: 10,
-      fontSize: 18,
-    },
-  },
-
-  full: {
-    width: "75%",
-  },
-});
 
 // From https://bitbucket.org/atlassian/atlaskit-mk-2/raw/4ad0e56649c3e6c973e226b7efaeb28cb240ccb0/packages/core/select/src/data/countries.js
 const countries = [
