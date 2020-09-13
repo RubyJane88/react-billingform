@@ -22,23 +22,25 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
     >
       {(formikProps) => (
         <Form className={`${classes.rootInput}`}>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(16rem, 1fr))",
-              // gridGap: "1rem",
-              width: "100%",
-              gridColumnGap: "1rem",
-              gridRowGap: "8rem",
-            }}
-          >
-            <div style={{ background: "green" }}>Hello</div>
-            <div style={{ background: "blue" }}>Hello</div>
-            <div style={{ background: "red" }}>Hello</div>
-            <div style={{ background: "pink" }}>Hello</div>
-            <div style={{ background: "grey" }}>Hello</div>
-            <div style={{ background: "black" }}>Hello</div>
-          </div>
+          {/* Sample of how to use grid */}
+
+          {/*<div*/}
+          {/*  style={{*/}
+          {/*    display: "grid",*/}
+          {/*    gridTemplateColumns: "repeat(auto-fit, minmax(16rem, 1fr))",*/}
+          {/*    // gridGap: "1rem",*/}
+          {/*    width: "100%",*/}
+          {/*    gridColumnGap: "1rem",*/}
+          {/*    gridRowGap: "8rem",*/}
+          {/*  }}*/}
+          {/*>*/}
+          {/*  <div style={{ background: "green" }}>Hello</div>*/}
+          {/*  <div style={{ background: "blue" }}>Hello</div>*/}
+          {/*  <div style={{ background: "red" }}>Hello</div>*/}
+          {/*  <div style={{ background: "pink" }}>Hello</div>*/}
+          {/*  <div style={{ background: "grey" }}>Hello</div>*/}
+          {/*  <div style={{ background: "black" }}>Hello</div>*/}
+          {/*</div>*/}
           <div className={classes.divStyle}>
             <div>Company Name</div>
             <FormikTextfield
