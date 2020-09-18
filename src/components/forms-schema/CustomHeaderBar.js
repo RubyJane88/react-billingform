@@ -6,7 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 
 const CustomHeaderBar = ({ classes }) => (
-  <AppBar position="static">
+  <AppBar style={{ background: "purple" }} position="static">
     <Toolbar>
       <IconButton
         edge="start"

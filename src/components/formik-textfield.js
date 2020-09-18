@@ -11,7 +11,6 @@ const FormikTextfield = ({ id, placeholder, formikProps, classes }) => {
         value={formikProps.values[`${id}`]}
         variant="outlined"
         placeholder={placeholder}
-        // label={label}
         onChange={formikProps.handleChange}
         onBlur={formikProps.handleBlur}
       />

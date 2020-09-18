@@ -1,8 +1,8 @@
 import * as yup from "yup";
 
 export const schema = yup.object({
-  companyName: yup.string().label("Company Name").required(),
-  fullName: yup.string().label("Full Name").required(),
+  companyName: yup.string().label("This  ").required(),
+  fullName: yup.string().label("This").required(),
   country: yup
     .object({
       code: yup.string().label("code").notRequired().nullable(),
@@ -12,9 +12,9 @@ export const schema = yup.object({
     .label("Country")
     .notRequired()
     .nullable(),
-  region: yup.string().label("Region/State/Province").required(),
-  address: yup.string().label("Address").required(),
-  city: yup.string().label("City").required(),
-  zipCode: yup.string().label("Zip Code").required(),
-  vatId: yup.string().label("Vat Id").required(),
+  region: yup.string().label("This ").required(),
+  address: yup.string().label("This ").required(),
+  city: yup.string().label("This ").required(),
+  zipCode: yup.string().label("This ").required(),
+  vatId: yup.string().label("This ").required(),
 });

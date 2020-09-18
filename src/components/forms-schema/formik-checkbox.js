@@ -4,6 +4,7 @@ import { green } from "@material-ui/core/colors";
 import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
+import TitlePage from "./title-page";
 
 const GreenCheckbox = withStyles({
   root: {
@@ -31,17 +32,6 @@ export default function CheckboxLabels() {
         control={<Checkbox name="checkedA" />}
         label="Send me invoices via email"
       />
-
-      {/*<FormControlLabel*/}
-      {/*  control={*/}
-      {/*    <GreenCheckbox*/}
-      {/*      checked={state.checkedG}*/}
-      {/*      onChange={handleChange}*/}
-      {/*      name="checkedA"*/}
-      {/*    />*/}
-      {/*  }*/}
-      {/*  label="Custom color"*/}
-      {/*/>*/}
     </FormGroup>
   );
 }

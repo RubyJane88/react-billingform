@@ -7,9 +7,8 @@ import FormikAutoCompleteCountryPhone from "./forms-schema/formik-autocomplete-c
 import FormikValuesViewer from "./formik-values-viewer";
 import CheckboxLabels from "./forms-schema/formik-checkbox";
 import { useMediaQuery } from "@material-ui/core";
-import Divider from "@material-ui/core/Divider";
-import Box from "@material-ui/core/Box";
 import FormDivider from "./forms-schema/form-divider";
+import TitlePage from "./forms-schema/title-page";
 
 const FormikBillingform = ({ initialValues, validationSchema }) => {
   const classes = useStyles();
@@ -50,7 +49,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
               classes={classes}
               id={"companyName"}
               label={"Company Name"}
-              placeholder={"🙈"}
+              placeholder={"🏢"}
               formikProps={formikProps}
             />
           </div>
@@ -61,7 +60,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
               classes={classes}
               id={"fullName"}
               label={"Full Name"}
-              placeholder={"🥒"}
+              placeholder={"🧍"}
               formikProps={formikProps}
             />
           </div>
@@ -86,7 +85,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
               classes={classes}
               id={"region"}
               label={"Region/State/Province"}
-              placeholder={"🏝️"}
+              placeholder={"🗺️"}
               formikProps={formikProps}
             />
           </div>
@@ -98,7 +97,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
               classes={classes}
               id={"address"}
               label={"Address"}
-              placeholder={"😀"}
+              placeholder={"🏠"}
               formikProps={formikProps}
             />
           </div>
@@ -109,7 +108,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
               classes={classes}
               id={"city"}
               label={"City"}
-              placeholder={"🙃"}
+              placeholder={"🏙️"}
               formikProps={formikProps}
             />
           </div>
@@ -146,7 +145,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
             }
           >
             <div>
-              <p>Invoice </p>
+              <TitlePage description={"Invoice"} />
             </div>
 
             <div>
@@ -162,7 +161,7 @@ const FormikBillingform = ({ initialValues, validationSchema }) => {
               width: "100%",
             }}
           >
-            <Button type="submit" variant="contained" color="primary">
+            <Button type="submit" variant="contained" color="inherit">
               Save Changes
             </Button>
           </div>
